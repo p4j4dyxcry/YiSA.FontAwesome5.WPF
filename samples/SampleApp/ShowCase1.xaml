@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="SampleApp.ShowCaseRotateIconView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:markupEx="clr-namespace:YiSA.WPF.MarkupEx;assembly=YiSA.WPF"
+             xmlns:fontAwesome5="clr-namespace:YiSA.FontAwesome5;assembly=YiSA.FontAwesome5.WPF"
+             xmlns:sampleApp="clr-namespace:SampleApp"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance sampleApp:ShowCase1Vm}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Storyboard x:Key="RotateEasing">
+            <DoubleAnimation Storyboard.Target=""
+                             Storyboard.TargetProperty="Angle"
+                             From="0"
+                             To="360"
+                             RepeatBehavior="Forever"
+                             Duration="0:0:1"
+                             EasingFunction="{markupEx:SnapEasing 8}"/>
+        </Storyboard>  
+        
+        <Storyboard x:Key="Default">
+            <DoubleAnimation Storyboard.TargetName="Fa5"
+                             Storyboard.TargetProperty="Angle"
+                             From="0"
+                             To="360"
+                             RepeatBehavior="Forever"
+                             Duration="0:0:1"/>
+        </Storyboard>  
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Label Content="通常のStoryBoardを利用した回転"/>
+        </Grid>
+        
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Label Content="コマ落ち＋Easingを加えた回転"/>
+        </Grid>
+        
+        <fontAwesome5:GeometryIcon x:Name="FatLeft"
+                                   Width="150"
+                                   Height="150"
+                                   Foreground="LightBlue" 
+                                   Background="Transparent" 
+                                   VerticalAlignment="Center"
+                                   Icon="{Binding Icon}"
+                                   Grid.Row="1"
+                                   Grid.Column="0">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="Loaded">
+                    <b:ControlStoryboardAction>
+                        <b:ControlStoryboardAction.Storyboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="FatLeft"
+                                                 Storyboard.TargetProperty="Angle"
+                                                 From="0"
+                                                 To="360"
+                                                 RepeatBehavior="Forever"
+                                                 Duration="0:0:1"/>                                
+                            </Storyboard>
+                        </b:ControlStoryboardAction.Storyboard>
+                    </b:ControlStoryboardAction>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+        </fontAwesome5:GeometryIcon>     
+        
+        <fontAwesome5:GeometryIcon x:Name="TargetRight"
+                                   Width="150"
+                                   Height="150"
+                                   Foreground="LightBlue" 
+                                   Background="Transparent" 
+                                   VerticalAlignment="Center"
+                                   Icon="{Binding Icon}"
+                                   Grid.Row="1"
+                                   Grid.Column="1">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="Loaded">
+                    <b:ControlStoryboardAction>
+                        <b:ControlStoryboardAction.Storyboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="TargetRight"
+                                                 Storyboard.TargetProperty="Angle"
+                                                 From="0"
+                                                 To="360"
+                                                 RepeatBehavior="Forever"
+                                                 Duration="0:0:1"
+                                                 EasingFunction="{markupEx:SnapEasing 8}"/>
+                            </Storyboard>
+                        </b:ControlStoryboardAction.Storyboard>
+                    </b:ControlStoryboardAction>
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+        </fontAwesome5:GeometryIcon>        
+    </Grid>
+    
+
+</UserControl>

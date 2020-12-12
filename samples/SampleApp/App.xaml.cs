@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+
 using System.Windows;
 
 namespace SampleApp
@@ -11,7 +7,21 @@ namespace SampleApp
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App 
     {
+        [STAThread]
+        public void Main(string[] args)
+        {
+            var app = new App();
+            app.Run();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            var window = new MainWindow();
+            window.DataContext = new MainWindowVm();
+            window.Show();
+        }
     }
 }
