@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <LangVersion>8</LangVersion>
+        <TargetFrameworks>net461;netcoreapp3.1</TargetFrameworks>
+    </PropertyGroup>
+
+</Project>

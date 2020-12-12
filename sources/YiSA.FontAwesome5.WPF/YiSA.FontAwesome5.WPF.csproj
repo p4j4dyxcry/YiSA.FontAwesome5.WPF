@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+    <PropertyGroup>
+        <UseWPF>true</UseWPF>
+        <RootNamespace>YiSA.FontAwesome5</RootNamespace>
+        <TargetFrameworks>net461;netcoreapp3.1</TargetFrameworks>
+        <LangVersion>8</LangVersion>
+    </PropertyGroup>
+
+</Project>

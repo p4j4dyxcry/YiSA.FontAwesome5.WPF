@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvgResourceGenerator", "sources\SvgResourceGenerator\SvgResourceGenerator.csproj", "{5FD3E8E5-9FC4-4961-9DB7-13D5A57B8F4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YiSA.FontAwesome5.WPF", "sources\YiSA.FontAwesome5.WPF\YiSA.FontAwesome5.WPF.csproj", "{097AFFB8-B77F-4673-9414-CB5681725B32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "samples\SampleApp\SampleApp.csproj", "{49B40CD2-CEC5-4672-AEFF-8554F5BCC15F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YiSA.WPF", "samples\YiSA\sources\YiSA.WPF\YiSA.WPF.csproj", "{92E3BF3D-7116-4BE1-A0F4-AEB5F5FA364E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YiSA.Foundation", "samples\YiSA\sources\YiSA.Foundation\YiSA.Foundation.csproj", "{1DAABEED-245F-48A1-85AF-579A68CA9E8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{4C79A1D1-C5AD-4E04-A720-0BB1DE48B5D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FD3E8E5-9FC4-4961-9DB7-13D5A57B8F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD3E8E5-9FC4-4961-9DB7-13D5A57B8F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD3E8E5-9FC4-4961-9DB7-13D5A57B8F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD3E8E5-9FC4-4961-9DB7-13D5A57B8F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{097AFFB8-B77F-4673-9414-CB5681725B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{097AFFB8-B77F-4673-9414-CB5681725B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{097AFFB8-B77F-4673-9414-CB5681725B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{097AFFB8-B77F-4673-9414-CB5681725B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B40CD2-CEC5-4672-AEFF-8554F5BCC15F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49B40CD2-CEC5-4672-AEFF-8554F5BCC15F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49B40CD2-CEC5-4672-AEFF-8554F5BCC15F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49B40CD2-CEC5-4672-AEFF-8554F5BCC15F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92E3BF3D-7116-4BE1-A0F4-AEB5F5FA364E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E3BF3D-7116-4BE1-A0F4-AEB5F5FA364E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92E3BF3D-7116-4BE1-A0F4-AEB5F5FA364E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92E3BF3D-7116-4BE1-A0F4-AEB5F5FA364E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DAABEED-245F-48A1-85AF-579A68CA9E8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DAABEED-245F-48A1-85AF-579A68CA9E8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DAABEED-245F-48A1-85AF-579A68CA9E8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DAABEED-245F-48A1-85AF-579A68CA9E8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92E3BF3D-7116-4BE1-A0F4-AEB5F5FA364E} = {4C79A1D1-C5AD-4E04-A720-0BB1DE48B5D7}
+		{49B40CD2-CEC5-4672-AEFF-8554F5BCC15F} = {4C79A1D1-C5AD-4E04-A720-0BB1DE48B5D7}
+		{1DAABEED-245F-48A1-85AF-579A68CA9E8E} = {4C79A1D1-C5AD-4E04-A720-0BB1DE48B5D7}
+	EndGlobalSection
+EndGlobal
