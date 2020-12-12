@@ -25,6 +25,9 @@ namespace SvgResourceGenerator
         [CmdArgOption(ShortcutName = "n", CommandName = "namespace",
             Description = "namespace by auto generate c# file")]
         public string NameSpace { get; set; } = "SvgResourceGenerator";
+
+        [CmdFlagOption(ShortcutName = "s",CommandName = "directory-suffix", Description = "Add the folder name to the suffix of the enumeration value")]
+        public bool AddToDirectorySuffix { get; set; } = true;
     }
 
     public class GeometryInfo
@@ -83,7 +86,7 @@ namespace SvgResourceGenerator
             
             var icons = Directory.EnumerateFiles(Path.Combine(commandLineArgs.SvgPath), "*.svg",SearchOption.AllDirectories)
                 .Where(ignore_check)
-                .Select(x => LoadGeometry(x, Directory.GetParent(x).Name))
+                .Select(x => LoadGeometry(x, commandLineArgs.AddToDirectorySuffix ? Directory.GetParent(x).Name : string.Empty))
                 .ToArray();
 
             // ! write to autogen.cs
@@ -180,6 +183,7 @@ namespace SvgResourceGenerator
             return result.ToArray();
         }
 
+        private static HashSet<string> _nameHashSet = new HashSet<string>();
         internal static GeometryInfo LoadGeometry(string filepath, string type)
         {
             var svgData = ReadSvgFromFile(filepath);
@@ -196,9 +200,22 @@ namespace SvgResourceGenerator
                 .Replace('-', '_');
             name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name);
 
+            string label;
+            if(string.IsNullOrWhiteSpace(type) is false)
+                label = $"Icon_{name}_{type}";
+            else
+                label = $"Icon_{name}";
+
+            //! Duplication measures
+            var originalLabel = label;
+            int index = 2;
+            while (_nameHashSet.Contains(label))
+            {
+                label = $"{originalLabel}{index}";
+            }
             return new GeometryInfo()
             {
-                Label = $"Icon_{name}_{type}",
+                Label = label,
                 Geometry = list.ToArray(),
             };
         }
