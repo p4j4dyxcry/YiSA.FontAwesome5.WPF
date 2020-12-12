@@ -1,0 +1,152 @@
+﻿<UserControl x:Class="SampleApp.ShowCase2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:SampleApp"
+             xmlns:fontAwesome5="clr-namespace:YiSA.FontAwesome5;assembly=YiSA.FontAwesome5.WPF"
+             xmlns:markupEx="clr-namespace:YiSA.WPF.MarkupEx;assembly=YiSA.WPF"
+             d:DataContext="{d:DesignInstance local:ShowCase2Vm}"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Separator Grid.Column="0" Grid.ColumnSpan="2" Margin="0,4" HorizontalAlignment="Left">
+            <Separator.LayoutTransform>
+                <RotateTransform Angle="90"/>
+            </Separator.LayoutTransform>
+        </Separator>
+
+        <Grid Grid.Column="0" Margin="2,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <fontAwesome5:GeometryIcon Icon="Icon_Search_solid" Width="20" Height="20" Foreground="DodgerBlue"/>
+                <TextBox Grid.Column="1" Text="{Binding SearchWord.Value,UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,4"/>
+            </Grid>
+
+            <ListBox Grid.Row="1" SelectedItem="{Binding Current.Value}" ItemsSource="{Binding Icons}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <fontAwesome5:GeometryIcon Icon="{Binding}" Width="20" Height="20"/>
+                            <TextBlock TextTrimming="CharacterEllipsis" Margin="4,0,0,0" Text="{Binding}" Width="150"/>
+                        </WrapPanel>                
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>                    
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBox FontSize="18" FontWeight="Bold" IsReadOnly="True" BorderThickness="0" Text="{Binding Current.Value , Mode=OneWay}"/>
+                <Separator Margin="4,0 "></Separator>
+
+                <Grid Height="400" Margin="0,5">
+                    <fontAwesome5:GeometryIcon 
+                        Icon="{Binding Current.Value}" 
+                        Width="{Binding Size.Value}" Height="{Binding Size.Value}" 
+                        Angle="{Binding Angle.Value}"
+                        Foreground="{Binding Foreground.Value , Converter={markupEx:ColorToBrush}}"
+                        Background="{Binding Background.Value, Converter={markupEx:ColorToBrush}}"
+                        DisableForegroundBrush="{Binding Disable.Value , Converter={markupEx:ColorToBrush}}"
+                        IsEnabled="{Binding IsEnabled.Value}"
+                        Opacity="{Binding Opacity.Value}"
+                        HorizontalAlignment="{Binding Horizontal.Value}" 
+                        VerticalAlignment="{Binding Vertical.Value}"
+                        Stretch="{Binding StretchVal.Value}"/>
+                </Grid>
+                
+                <WrapPanel >
+                    <DockPanel Width="32" Height="32" VerticalAlignment="Bottom">
+                        <TextBlock DockPanel.Dock="Bottom" Text="8x8" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                        <fontAwesome5:GeometryIcon DockPanel.Dock="Top" Icon="{Binding Current.Value}" Width="8" Height="8" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </DockPanel>
+                    <DockPanel Width="32" Height="48" VerticalAlignment="Bottom">
+                        <TextBlock DockPanel.Dock="Bottom" Text="16x16" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                        <fontAwesome5:GeometryIcon DockPanel.Dock="Top" Icon="{Binding Current.Value}" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </DockPanel>
+                    <DockPanel Width="48" Height="64" VerticalAlignment="Bottom">
+                        <TextBlock DockPanel.Dock="Bottom" Text="32x32" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                        <fontAwesome5:GeometryIcon DockPanel.Dock="Top" Icon="{Binding Current.Value}" Width="32" Height="32" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </DockPanel>
+                    <DockPanel Width="72" Height="72" VerticalAlignment="Bottom">
+                        <TextBlock DockPanel.Dock="Bottom" Text="64x64" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                        <fontAwesome5:GeometryIcon DockPanel.Dock="Top" Icon="{Binding Current.Value}" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </DockPanel>
+                </WrapPanel>
+                
+            </StackPanel>
+            
+            <StackPanel Grid.Column="1" Margin="0,40,0,0">
+                <WrapPanel>
+                    <Label Content="Foreground" Width="100"/>
+                    <ComboBox SelectedItem="{Binding Foreground.Value}" ItemsSource="{Binding Colors}" Width="100"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Background" Width="100"/>
+                    <ComboBox SelectedItem="{Binding Background.Value}" ItemsSource="{Binding Colors}" Width="100"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Disable" Width="100"/>
+                    <ComboBox SelectedItem="{Binding Disable.Value}" ItemsSource="{Binding Colors}" Width="100"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="IsEnabled" Width="100"/>
+                    <ToggleButton Content="IsEnabled" IsChecked="{Binding IsEnabled.Value}" Width="100"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Size" Width="50"/>
+                    <Label HorizontalContentAlignment="Right" Content="{Binding Size.Value}" Width="50"/>
+                    <Slider Value="{Binding Size.Value}" Minimum="18" Maximum="400" Width="100"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Angle" Width="100"/>
+                    <TextBox Text="{Binding Angle.Value}" Width="50"/>
+                    <Slider Value="{Binding Angle.Value}" Minimum="0" Maximum="360" Width="50"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="H Alignment" Width="100"/>
+                    <ComboBox SelectedItem="{Binding Horizontal.Value}" ItemsSource="{Binding HorizontalAlignments}" Width="100"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="V Alignment" Width="100"/>
+                    <ComboBox SelectedItem="{Binding Vertical.Value}" ItemsSource="{Binding VerticalAlignments}" Width="100"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Stretch" Width="100"/>
+                    <ComboBox SelectedItem="{Binding StretchVal.Value}" ItemsSource="{Binding Stretches}" Width="100"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Alpha" Width="100"/>
+                    <Slider Value="{Binding Opacity.Value}" Minimum="0" Maximum="1" Width="100"/>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+        
+        <StackPanel Grid.Column="1" VerticalAlignment="Bottom">
+            <Label Content="Xaml"/>
+            <TextBox 
+                IsReadOnly="True"
+                Text="{Binding Xaml.Value , Mode=OneWay}"
+                Margin="4,0,0,5" Height="100"/>            
+        </StackPanel>
+    </Grid>
+
+    
+</UserControl>
