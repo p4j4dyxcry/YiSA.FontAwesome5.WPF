@@ -25,6 +25,12 @@ download from [nuget](https://www.nuget.org/packages/YiSA.FontAwesome5.WPF/) or 
 
 `PM >Install-Package YiSA.FontAwesome5.WPF`
 
+# What is better than other solutions?
+- The geometry is not initialized until the first access. So it does not affect the startup speed of the editor.
+- It's a very small library. It can be completed with just two files.
+- The auto-generated code does not depend on Font Awesome. It can be used equivalently in combination with other svg icons.
+- You don't have to bring all the icons into your application. The generator can optionally ignore unwanted icons without including them in the auto-generated code. It can also be used to include only the minimum required icons.
+
 # How do you use it?
 There is a [built-in sample](https://github.com/p4j4dyxcry/YiSA.FontAwesome5.WPF/tree/main/samples/SampleApp). Probably the best way to see this.
 
