@@ -1,0 +1,3 @@
+[submodule "samples/YiSA"]
+	path = samples/YiSA
+	url = git@github.com:p4j4dyxcry/YiSA.git
