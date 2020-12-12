@@ -10,9 +10,7 @@
 1. A tool to easily use [Font Awesome5](https://fontawesome.com/) in WPF
 2. Automatically generate a C # file from an svg file in a form that can be used in WPF. It does not depend on Font Awesome.
 
-auto-generated code sample
-
-https://raw.githubusercontent.com/p4j4dyxcry/YiSA.FontAwesome5.WPF/main/sources/YiSA.FontAwesome5.WPF/fa5.autogen.cs
+auto-generated code [sample](https://raw.githubusercontent.com/p4j4dyxcry/YiSA.FontAwesome5.WPF/main/sources/YiSA.FontAwesome5.WPF/fa5.autogen.cs)
 
 You can incorporate an auto-generated C # file into your project using the command line tools shown below.
 
