@@ -74,7 +74,7 @@ namespace YiSA.FontAwesome5
         
         // caches
         private static readonly Dictionary<IconType, Geometry> GeometryCache = new Dictionary<IconType, Geometry>();
-        private static readonly Dictionary<int, Brush> BrushCache = new Dictionary<int, Brush>();
+        private static readonly Dictionary<int, DrawingBrush> BrushCache = new Dictionary<int, DrawingBrush>();
         
         /// <summary>
         /// static Ctor
@@ -82,6 +82,7 @@ namespace YiSA.FontAwesome5
         static GeometryIcon()
         {
             IsEnabledProperty.OverrideMetadata(typeof(GeometryIcon), new FrameworkPropertyMetadata(true,FrameworkPropertyMetadataOptions.AffectsRender));
+            BackgroundProperty.OverrideMetadata(typeof(GeometryIcon), new FrameworkPropertyMetadata(Brushes.Transparent,FrameworkPropertyMetadataOptions.AffectsRender));
         }
 
         /// <summary>
@@ -103,13 +104,11 @@ namespace YiSA.FontAwesome5
         /// </summary>
         /// <param name="icon"></param>
         /// <param name="foreground"></param>
-        /// <param name="stretch"></param>
         /// <returns></returns>
-        public static Brush GetOrCreateBrush(IconType icon, Brush foreground, Stretch stretch = Stretch.Uniform)
+        public static DrawingBrush GetOrCreateBrush(IconType icon, Brush foreground)
         {
             int hash = icon.GetHashCode() ^
-                       foreground.GetHashCode() ^
-                       stretch.GetHashCode();
+                       foreground.GetHashCode();
 
             if (BrushCache.TryGetValue(hash, out var brush) is false)
             {
@@ -123,12 +122,10 @@ namespace YiSA.FontAwesome5
                     Geometry = geometry,
                     Brush = foreground,
                 };
-                drawing.Freeze();
 
                 brush = new DrawingBrush()
                 {
                     Drawing = drawing,
-                    Stretch = stretch,
                 };
 
                 BrushCache[hash] = brush;
@@ -196,8 +193,8 @@ namespace YiSA.FontAwesome5
 
             var brush = GetOrCreateBrush(
                 Icon,
-                iconCBrush,
-                Stretch);
+                iconCBrush);
+            brush.Stretch = Stretch;
 
             drawingContext.DrawRectangle(brush,null,new Rect(0,0,ActualWidth,ActualHeight));
         }
