@@ -10,8 +10,7 @@
 1. A tool to easily use [Font Awesome5](https://fontawesome.com/) in WPF
 2. Automatically generate a C # file from an svg file in a form that can be used in WPF. It does not depend on Font Awesome.
 
-## auto-generated code sample
-https://raw.githubusercontent.com/p4j4dyxcry/YiSA.FontAwesome5.WPF/main/sources/YiSA.FontAwesome5.WPF/fa5.autogen.cs
+auto-generated code [sample](https://raw.githubusercontent.com/p4j4dyxcry/YiSA.FontAwesome5.WPF/main/sources/YiSA.FontAwesome5.WPF/fa5.autogen.cs)
 
 You can incorporate an auto-generated C # file into your project using the command line tools shown below.
 
@@ -25,6 +24,12 @@ Since the drawing control is one file, it is easy to incorporate it statically.
 download from [nuget](https://www.nuget.org/packages/YiSA.FontAwesome5.WPF/) or Powershell .
 
 `PM >Install-Package YiSA.FontAwesome5.WPF`
+
+# What is better than other solutions?
+- The geometry is not initialized until the first access. So it does not affect the startup speed of the editor.
+- It's a very small library. It can be completed with just two files.
+- The auto-generated code does not depend on Font Awesome. It can be used equivalently in combination with other svg icons.
+- You don't have to bring all the icons into your application. The generator can optionally ignore unwanted icons without including them in the auto-generated code. It can also be used to include only the minimum required icons.
 
 # How do you use it?
 There is a [built-in sample](https://github.com/p4j4dyxcry/YiSA.FontAwesome5.WPF/tree/main/samples/SampleApp). Probably the best way to see this.
