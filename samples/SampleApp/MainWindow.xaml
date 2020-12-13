@@ -8,20 +8,16 @@
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:markupEx="clr-namespace:YiSA.WPF.MarkupEx;assembly=YiSA.WPF"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:ge="clr-namespace:YiSA.WPF.ControlEx;assembly=YiSA.WPF"
         d:DataContext="{d:DesignInstance local:MainWindowVm}"
         mc:Ignorable="d"
         Title="Sample Application" Height="720" Width="920">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="190"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+
+    <Grid ge:GridEx.RowDef="35,*"
+          ge:GridEx.ColmDef="190,*"
+          ShowGridLines="True">
         
-        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2">
+        <Grid ge:GridEx.Area="0,0,2,1" Margin="2">
             <WrapPanel>
                 <Menu>
                     <MenuItem Header="Menu"/>
@@ -37,7 +33,7 @@
             </Button>
         </Grid>
         
-        <ListBox Grid.Column="0" Grid.Row="1" SelectedItem="{Binding Current.Value}" ItemsSource="{Binding Pages}">
+        <ListBox ge:GridEx.Area="0,1" SelectedItem="{Binding Current.Value}" ItemsSource="{Binding Pages}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -82,7 +78,7 @@
             
         </ListBox>
 
-        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding Current.Value.Page}">
+        <ContentControl ge:GridEx.Area="1,1" Content="{Binding Current.Value.Page}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type local:ShowCase1Vm}">
                     <local:ShowCase1/>
