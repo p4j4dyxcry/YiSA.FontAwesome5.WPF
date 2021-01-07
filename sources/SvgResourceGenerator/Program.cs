@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
-using YiSA.Foundation.CommandLine;
+using SvgResourceGenerator.CommandLine;
 
 namespace SvgResourceGenerator
 {

@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:markupEx="clr-namespace:YiSA.WPF.MarkupEx;assembly=YiSA.WPF"
              xmlns:fontAwesome5="clr-namespace:YiSA.FontAwesome5;assembly=YiSA.FontAwesome5.WPF"
              xmlns:sampleApp="clr-namespace:SampleApp"
              xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
-             xmlns:ge="clr-namespace:YiSA.WPF.ControlEx;assembly=YiSA.WPF"
+             xmlns:ge="clr-namespace:YiSA.Markup.ControlEx;assembly=YiSA.Markup"
+             xmlns:extension="clr-namespace:YiSA.Markup.Extension;assembly=YiSA.Markup"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance sampleApp:ShowCase1Vm}"
              d:DesignHeight="300" d:DesignWidth="300">
@@ -107,7 +107,7 @@
                                                  To="360"
                                                  RepeatBehavior="Forever"
                                                  Duration="0:0:1"
-                                                 EasingFunction="{markupEx:SnapEasing 8}"/>
+                                                 EasingFunction="{extension:SnapEasing 8 , Cubic}"/>
                             </Storyboard>
                         </b:ControlStoryboardAction.Storyboard>
                     </b:ControlStoryboardAction>
@@ -134,7 +134,7 @@
                                                  To="360"
                                                  RepeatBehavior="Forever"
                                                  Duration="0:0:0.75"
-                                                 EasingFunction="{markupEx:SnapEasing 6}"/>                                
+                                                 EasingFunction="{extension:SnapEasing 6,Cubic}"/>                                
                             </Storyboard>
                         </b:ControlStoryboardAction.Storyboard>
                     </b:ControlStoryboardAction>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace YiSA.Foundation.CommandLine
+namespace SvgResourceGenerator.CommandLine
 {
     public enum CommandLineParseResult
     {

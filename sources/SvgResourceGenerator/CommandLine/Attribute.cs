@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YiSA.Foundation.CommandLine
+namespace SvgResourceGenerator.CommandLine
 {
     [AttributeUsage(AttributeTargets.Property)]
     public abstract class CmdOption : Attribute
