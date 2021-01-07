@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Windows;
 
 namespace SampleApp
@@ -9,13 +8,6 @@ namespace SampleApp
     /// </summary>
     public partial class App 
     {
-        [STAThread]
-        public void Main(string[] args)
-        {
-            var app = new App();
-            app.Run();
-        }
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
